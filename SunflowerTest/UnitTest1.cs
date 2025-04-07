@@ -1,7 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SunflowerInfrastructure;
 using SunflowerTest.Utils;
-using System;
 
 namespace SunflowerTest
 {
@@ -13,7 +12,7 @@ namespace SunflowerTest
         public void TestMethod1()
         {
             string email = Generators.GenerateRandomEmail();
-            WebshopPage webshop = TestHelper.RegisterToWebshop(page, email);
+            WebshopHomePage webshop = TestHelper.RegisterToWebshop(page, email);
             Assert.AreEqual(email, webshop.GetHeaderLinks.GetAccountText());
             string productName = TestHelper.AddRandomProductToCart(page);
             string cartName = webshop.GetHeaderLinks.ClickOnShoppingCart().GetFirstCartName;

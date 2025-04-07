@@ -2,23 +2,18 @@
 using SunflowerInfrastructure.Components;
 using SunflowerInfrastructure.Enums;
 using SunflowerInfrastructure.Utils.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SunflowerTest.Utils
 {
     public static class TestHelper
     {
-        public static WebshopPage RegisterToWebshop(WebshopPage page, string email)
+        public static WebshopHomePage RegisterToWebshop(WebshopHomePage page, string email)
         {
             Register register = page
                 .GetHeaderLinks
                 .ClickOnRegister()
                 .GetRegister;
-            register.SetGender(Gender.male);
+            register.SetGender(Gender.Male);
             register.SetFirstName(Consts.RANDOM_STRING);
             register.SetLastName(Consts.RANDOM_STRING);
             register.SetEmail(email);
@@ -27,9 +22,9 @@ namespace SunflowerTest.Utils
             return register.ClickOnRegister().ClickOnContinueButton();
         }
 
-        public static string AddRandomProductToCart(WebshopPage page)
+        public static string AddRandomProductToCart(WebshopHomePage page)
         {
-            Product product = page.GetHeaderMenu.ClickOnOption(HeaderMenuOptions.DigitalDownloads).GetProductGrid.GetFirstProduct();
+            Product product = page.GetHeaderMenu.ClickOnOption().GetProductGrid.GetFirstProduct();
             product.ClickOnAddToCart();
             return product.GetProductName;
         }

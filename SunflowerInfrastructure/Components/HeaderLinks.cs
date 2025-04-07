@@ -9,13 +9,15 @@ namespace SunflowerInfrastructure
 {
     public class HeaderLinks : ElementUser
     {
-        private string REGISTER_CSS = ".ico-register";
-        private string ACCOUNT_CSS = ".account";
-        private string SHOPPING_CART_CSS = ".header-links #topcartlink";
+        private const string REGISTER_CSS = ".ico-register";
+        private const string ACCOUNT_CSS = ".account";
+        private const string SHOPPING_CART_CSS = ".header-links #topcartlink";
         public HeaderLinks(IWebDriver driver, IWebElement mainElement) : base(driver, mainElement) { }
-        private IWebElement Register => MainElenent.FindElement(By.CssSelector(REGISTER_CSS));
+
+        private IWebElement Register => MainElement.FindElement(By.CssSelector(REGISTER_CSS));
         private IWebElement Account => Driver.FindElement(By.CssSelector(ACCOUNT_CSS));
         private IWebElement ShoppingCart => Driver.FindElement(By.CssSelector(SHOPPING_CART_CSS));
+
         public string GetAccountText() => Account.Text;
 
         public RegistrationPage ClickOnRegister()

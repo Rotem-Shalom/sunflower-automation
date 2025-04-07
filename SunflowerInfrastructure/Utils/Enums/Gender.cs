@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SunflowerInfrastructure.Utils.Enums
+﻿namespace SunflowerInfrastructure.Utils.Enums
 {
     public enum Gender
     {
-        male,
-        female
+        Male,
+        Female
     }
 }

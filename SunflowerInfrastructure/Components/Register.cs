@@ -11,20 +11,20 @@ namespace SunflowerInfrastructure.Components
 {
     public class Register : ElementUser
     {
-        private string GENDER_MAIL_CSS = "#gender-male";
-        private string GENDER_FEMAIL_CSS = "#gender-female";
-        private string FIRST_NAME_CSS = "#FirstName";
-        private string LAST_NAME_CSS = "#LastName";
-        private string EMAIL_CSS = "#Email";
-        private string PASSWORD_CSS = "#Password";
-        private string CONFIRM_PASSWORD_CSS = "#ConfirmPassword";
-        private string REGISTER_BUTTON_CSS = ".register-next-step-button";
-        private string REGISTRATION_RESULT_PAGE_CSS = ".registration-result-page";
+        private const string GENDER_MALE_CSS = "#gender-male";
+        private const string GENDER_FEMALE_CSS = "#gender-female";
+        private const string FIRST_NAME_CSS = "#FirstName";
+        private const string LAST_NAME_CSS = "#LastName";
+        private const string EMAIL_CSS = "#Email";
+        private const string PASSWORD_CSS = "#Password";
+        private const string CONFIRM_PASSWORD_CSS = "#ConfirmPassword";
+        private const string REGISTER_BUTTON_CSS = ".register-next-step-button";
+        private const string REGISTRATION_RESULT_PAGE_CSS = ".registration-result-page";
 
         public Register(IWebDriver driver, IWebElement mainElement) : base(driver, mainElement) { }
 
-        private IWebElement GenderMale => Driver.FindElement(By.CssSelector(GENDER_MAIL_CSS));
-        private IWebElement GenderFemale => Driver.FindElement(By.CssSelector(GENDER_FEMAIL_CSS));
+        private IWebElement GenderMale => Driver.FindElement(By.CssSelector(GENDER_MALE_CSS));
+        private IWebElement GenderFemale => Driver.FindElement(By.CssSelector(GENDER_FEMALE_CSS));
         private IWebElement FirstName => Driver.FindElement(By.CssSelector(FIRST_NAME_CSS));
         private IWebElement LastName => Driver.FindElement(By.CssSelector(LAST_NAME_CSS));
         private IWebElement Email => Driver.FindElement(By.CssSelector(EMAIL_CSS));
@@ -39,22 +39,12 @@ namespace SunflowerInfrastructure.Components
         public void SetConfirmPassword(string confirnPassword) => new SingleLineInput(Driver, ConfirmPassword).SetInput(confirnPassword);
         public void SetGender(Gender gender)
         {
-            if (gender == Gender.male)
-            {
-                new RadioInput(Driver, GenderMale)
-                .SetInput();
-            }
-            else
-            {
-                new RadioInput(Driver, GenderFemale)
-                .SetInput();
-            }
+            new RadioInput(Driver, gender == Gender.Male ? GenderMale : GenderFemale).SetInput();           
         }
         public RegistrationResultPage ClickOnRegister()
         {
             RegisterButton.Click();
             return new RegistrationResultPage(Driver);
         }
-
     }
 }

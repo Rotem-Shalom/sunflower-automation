@@ -92,7 +92,7 @@
     <Compile Include="Pages\RegistrationPage.cs" />
     <Compile Include="Pages\RegistrationResultPage.cs" />
     <Compile Include="Pages\ShoppingCartPage.cs" />
-    <Compile Include="Pages\WebshopPage.cs" />
+    <Compile Include="Pages\WebshopHomePage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
