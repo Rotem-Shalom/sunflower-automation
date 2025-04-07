@@ -75,23 +75,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cart.cs" />
-    <Compile Include="Class1.cs" />
-    <Compile Include="ControlPanel.cs" />
-    <Compile Include="DigitalDownloadsPage.cs" />
+    <Compile Include="Components\Cart.cs" />
+    <Compile Include="Components\Inputs\RadioInput.cs" />
+    <Compile Include="Components\ProductGrid.cs" />
+    <Compile Include="Components\Register.cs" />
+    <Compile Include="Utils\Enums\Gender.cs" />
+    <Compile Include="Utils\HeaderMenuOptions.cs" />
+    <Compile Include="Pages\DigitalDownloadsPage.cs" />
     <Compile Include="DriverUser.cs" />
     <Compile Include="ElementUser.cs" />
-    <Compile Include="Gender.cs" />
-    <Compile Include="Header.cs" />
-    <Compile Include="HeaderMenu.cs" />
-    <Compile Include="Inputs\RadioInput.cs" />
-    <Compile Include="Inputs\SingleLineInput.cs" />
-    <Compile Include="Product.cs" />
+    <Compile Include="Components\HeaderLinks.cs" />
+    <Compile Include="Components\HeaderMenu.cs" />
+    <Compile Include="Components\Inputs\SingleLineInput.cs" />
+    <Compile Include="Components\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegisterationPage.cs" />
-    <Compile Include="RegisterationResultPage.cs" />
-    <Compile Include="ShoppingCartPage.cs" />
-    <Compile Include="WebshopBrowser.cs" />
+    <Compile Include="Pages\RegistrationPage.cs" />
+    <Compile Include="Pages\RegistrationResultPage.cs" />
+    <Compile Include="Pages\ShoppingCartPage.cs" />
+    <Compile Include="Pages\WebshopPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

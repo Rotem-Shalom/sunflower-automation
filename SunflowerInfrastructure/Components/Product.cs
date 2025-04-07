@@ -15,9 +15,7 @@ namespace SunflowerInfrastructure
         private IWebElement AddToCartButton => MainElenent.FindElement(By.CssSelector(ADD_TO_CART_BUTTON_CSS));
         public string GetProductName => MainElenent.FindElement(By.CssSelector(PRODUCT_NAME_CSS)).Text;
 
-        public void ClickOnAddToCart()
-        {
-            AddToCartButton.Click();
-        }
+        public void ClickOnAddToCart() => AddToCartButton.Click();
+
     }
 }

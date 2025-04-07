@@ -12,25 +12,12 @@ namespace SunflowerTest
         [TestMethod]
         public void TestMethod1()
         {
-            RegisterationPage rp = page
-                .GetHeader()
-                .ClickOnRegister();
             string email = Generators.GenerateRandomEmail();
-            rp.SetGender(Gender.male);
-            rp.SetFirstName("hello");
-            rp.SetLastName("world");
-            rp.SetEmail(email);
-            rp.SetPassword("123456");
-            rp.SetConfirmPassword("123456");
-            WebshopBrowser wb= rp.ClickOnRegister().ClickOnContinueButton();
-            string account = wb.GetHeader().GetAccountText();
-            Assert.AreEqual(email, account);
-            wb.GetHeaderMenu().ClickOnDigitalDownloads();
-            string productName = wb.GetDigitalDownloads().CliclOnAddToCardInRandomProduct();
-            string cartName = wb.GetHeader().ClickOnShoppingCart().GetFirsCartName();
+            WebshopPage webshop = TestHelper.RegisterToWebshop(page, email);
+            Assert.AreEqual(email, webshop.GetHeaderLinks.GetAccountText());
+            string productName = TestHelper.AddRandomProductToCart(page);
+            string cartName = webshop.GetHeaderLinks.ClickOnShoppingCart().GetFirstCartName;
             Assert.AreEqual(productName, cartName);
-
-            //ClosePage();
         }
     }
 }

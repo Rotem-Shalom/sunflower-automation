@@ -11,10 +11,6 @@ namespace SunflowerInfrastructure.Inputs
     {
         public SingleLineInput(IWebDriver driver, IWebElement mainElement) : base(driver, mainElement) { }
 
-        public void SetInput(string text)
-        {
-            MainElenent.SendKeys(text);
-        }
-
+        public void SetInput(string text) => MainElenent.SendKeys(text);
     }
 }

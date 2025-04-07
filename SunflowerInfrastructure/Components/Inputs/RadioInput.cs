@@ -11,10 +11,6 @@ namespace SunflowerInfrastructure.Inputs
     {
         public RadioInput(IWebDriver driver, IWebElement mainElement) : base(driver, mainElement) { }
 
-        public void SetInput()
-        {
-            MainElenent.Click();
-        }
-
+        public void SetInput()=> MainElenent.Click();
     }
 }
