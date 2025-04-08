@@ -10,7 +10,7 @@ namespace SunflowerInfrastructure.Components
 
         public ProductGrid(IWebDriver driver, IWebElement mainElement) : base(driver, mainElement) { }
 
-        public List<Product> GetProducts => Driver.FindElements(By.CssSelector(PRODUCT_CSS)).Select(product => new Product(Driver, product)).ToList();
+        private List<Product> GetProducts => Waiters.FindAndWaitForElements(Driver, MainElement, By.CssSelector(PRODUCT_CSS)).Select(product => new Product(Driver, product)).ToList();
 
         public Product GetFirstProduct() => GetProducts.FirstOrDefault();
 

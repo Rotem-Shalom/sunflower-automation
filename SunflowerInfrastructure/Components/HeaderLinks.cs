@@ -14,9 +14,9 @@ namespace SunflowerInfrastructure
         private const string SHOPPING_CART_CSS = ".header-links #topcartlink";
         public HeaderLinks(IWebDriver driver, IWebElement mainElement) : base(driver, mainElement) { }
 
-        private IWebElement Register => MainElement.FindElement(By.CssSelector(REGISTER_CSS));
-        private IWebElement Account => Driver.FindElement(By.CssSelector(ACCOUNT_CSS));
-        private IWebElement ShoppingCart => Driver.FindElement(By.CssSelector(SHOPPING_CART_CSS));
+        private IWebElement Register => Waiters.FindAndWaitForElement(Driver, MainElement, By.CssSelector(REGISTER_CSS));
+        private IWebElement Account => Waiters.FindAndWaitForElement(Driver, MainElement, By.CssSelector(ACCOUNT_CSS));
+        private IWebElement ShoppingCart => Waiters.FindAndWaitForElement(Driver, MainElement, By.CssSelector(SHOPPING_CART_CSS));
 
         public string GetAccountText() => Account.Text;
 

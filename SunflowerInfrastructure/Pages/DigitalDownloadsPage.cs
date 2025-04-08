@@ -7,6 +7,7 @@ namespace SunflowerInfrastructure
     {
         private const string PRODUCT_GRID_CSS = ".product-grid";
         public DigitalDownloadsPage(IWebDriver driver) : base(driver) { }
-        public ProductGrid GetProductGrid => new ProductGrid(Driver, Driver.FindElement(By.CssSelector(PRODUCT_GRID_CSS)));
+        private IWebElement ProductGrid => Waiters.FindAndWaitForElement(Driver, By.CssSelector(PRODUCT_GRID_CSS));
+        public ProductGrid GetProductGrid => new ProductGrid(Driver, ProductGrid);
     }
 }

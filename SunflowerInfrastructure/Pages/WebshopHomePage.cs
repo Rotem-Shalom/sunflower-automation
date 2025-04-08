@@ -9,9 +9,8 @@ namespace SunflowerInfrastructure
 
         public WebshopHomePage(IWebDriver driver) : base(driver) { }
 
-        private IWebElement HeaderLinks => Driver.FindElement(By.CssSelector(HEADER_LINKS_CSS));
-        private IWebElement HeaderMenu => Driver.FindElement(By.CssSelector(HEADER_MENU_CSS));
-
+        private IWebElement HeaderLinks => Waiters.FindAndWaitForElement(Driver, By.CssSelector(HEADER_LINKS_CSS));
+        private IWebElement HeaderMenu => Waiters.FindAndWaitForElement(Driver, By.CssSelector(HEADER_MENU_CSS));
 
         public HeaderLinks GetHeaderLinks => new HeaderLinks(Driver, HeaderLinks);
         public HeaderMenu GetHeaderMenu => new HeaderMenu(Driver, HeaderMenu);

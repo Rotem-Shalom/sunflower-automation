@@ -9,6 +9,8 @@ namespace SunflowerInfrastructure
 
         public RegistrationPage(IWebDriver driver) : base(driver) { }
 
-        public Register GetRegister => new Register(Driver, Driver.FindElement(By.CssSelector(REGISTER_CSS)));
+        private IWebElement RegisterComponent => Waiters.FindAndWaitForElement(Driver, By.CssSelector(REGISTER_CSS));
+
+        public Register GetRegister => new Register(Driver, RegisterComponent);
     }
 }

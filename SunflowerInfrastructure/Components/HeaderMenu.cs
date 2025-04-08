@@ -10,7 +10,8 @@ namespace SunflowerInfrastructure
         private const string TOP_MENU_OPTIONS_CSS = ".top-menu a";
         public HeaderMenu(IWebDriver driver, IWebElement mainElement) : base(driver, mainElement) { }
 
-        private List<IWebElement> MenuOptions => MainElement.FindElements(By.CssSelector(TOP_MENU_OPTIONS_CSS)).ToList();
+        private List<IWebElement> MenuOptions => Waiters.FindAndWaitForElements(Driver, MainElement, By.CssSelector(TOP_MENU_OPTIONS_CSS));
+
 
         public IWebElement GetOption(string optionText) => MenuOptions
                 .FirstOrDefault(option => option.Text.Equals(optionText));

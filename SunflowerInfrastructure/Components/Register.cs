@@ -23,14 +23,14 @@ namespace SunflowerInfrastructure.Components
 
         public Register(IWebDriver driver, IWebElement mainElement) : base(driver, mainElement) { }
 
-        private IWebElement GenderMale => Driver.FindElement(By.CssSelector(GENDER_MALE_CSS));
-        private IWebElement GenderFemale => Driver.FindElement(By.CssSelector(GENDER_FEMALE_CSS));
-        private IWebElement FirstName => Driver.FindElement(By.CssSelector(FIRST_NAME_CSS));
-        private IWebElement LastName => Driver.FindElement(By.CssSelector(LAST_NAME_CSS));
-        private IWebElement Email => Driver.FindElement(By.CssSelector(EMAIL_CSS));
-        private IWebElement Password => Driver.FindElement(By.CssSelector(PASSWORD_CSS));
-        private IWebElement ConfirmPassword => Driver.FindElement(By.CssSelector(CONFIRM_PASSWORD_CSS));
-        private IWebElement RegisterButton => Driver.FindElement(By.CssSelector(REGISTER_BUTTON_CSS));
+        private IWebElement GenderMale => Waiters.FindAndWaitForElement(Driver, MainElement, By.CssSelector(GENDER_MALE_CSS));
+        private IWebElement GenderFemale => Waiters.FindAndWaitForElement(Driver, MainElement, By.CssSelector(GENDER_FEMALE_CSS));
+        private IWebElement FirstName => Waiters.FindAndWaitForElement(Driver, MainElement, By.CssSelector(FIRST_NAME_CSS));
+        private IWebElement LastName => Waiters.FindAndWaitForElement(Driver, MainElement, By.CssSelector(LAST_NAME_CSS));
+        private IWebElement Email => Waiters.FindAndWaitForElement(Driver, MainElement, By.CssSelector(EMAIL_CSS));
+        private IWebElement Password => Waiters.FindAndWaitForElement(Driver, MainElement, By.CssSelector(PASSWORD_CSS));
+        private IWebElement ConfirmPassword => Waiters.FindAndWaitForElement(Driver, MainElement, By.CssSelector(CONFIRM_PASSWORD_CSS));
+        private IWebElement RegisterButton => Waiters.FindAndWaitForElement(Driver, MainElement, By.CssSelector(REGISTER_BUTTON_CSS));
 
         public void SetFirstName(string firstName) => new SingleLineInput(Driver, FirstName).SetInput(firstName);
         public void SetLastName(string lastName) => new SingleLineInput(Driver, LastName).SetInput(lastName);
