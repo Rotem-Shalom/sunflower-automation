@@ -1,11 +1,6 @@
 ﻿using OpenQA.Selenium;
 using SunflowerInfrastructure.Inputs;
 using SunflowerInfrastructure.Utils.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SunflowerInfrastructure.Components
 {
@@ -39,7 +34,7 @@ namespace SunflowerInfrastructure.Components
         public void SetConfirmPassword(string confirnPassword) => new SingleLineInput(Driver, ConfirmPassword).SetInput(confirnPassword);
         public void SetGender(Gender gender)
         {
-            new RadioInput(Driver, gender == Gender.Male ? GenderMale : GenderFemale).SetInput();           
+            new RadioInput(Driver, gender == Gender.Male ? GenderMale : GenderFemale).SetInput();
         }
         public RegistrationResultPage ClickOnRegister()
         {

@@ -5,11 +5,11 @@ using SunflowerTest.Utils;
 namespace SunflowerTest
 {
     [TestClass]
-    public class UnitTest1 : TestBase
+    public class Tests : TestBase
     {
 
         [TestMethod]
-        public void TestMethod1()
+        public void SuccessfulRegistrationAndAddProductToCartTest()
         {
             string email = Generators.GenerateRandomEmail();
             WebshopHomePage webshop = TestHelper.RegisterToWebshop(page, email);

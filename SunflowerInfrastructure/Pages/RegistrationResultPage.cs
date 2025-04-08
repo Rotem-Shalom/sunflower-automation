@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using SunflowerInfrastructure.Utils;
 
 namespace SunflowerInfrastructure
 {
